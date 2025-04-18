@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+body {
+  background-color: #faf9f6;
+  color: #5c5c5c;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Swiper custom styles */
+.swiper-pagination-bullet {
+  background-color: #cfa144;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #cfa144;
+  opacity: 1;
+}
+
+/* Hide default swiper navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
