@@ -77,4 +77,4 @@ export const translations = {
     footerMessage: "Criado com amor para noivas reais que querem economizar com estilo",
     allRights: "Todos os direitos reservados.",
   },
-}
+};

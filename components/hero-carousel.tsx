@@ -13,10 +13,6 @@ const WEDDING_IMAGES = [
   "/image/Hero/hero4.webp",
   "/image/Hero/hero5.webp",
   "/image/Hero/hero6.webp",
-  "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=1920&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1920&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=1920&auto=format&fit=crop",
 ]
 
 const DEFAULT_IMAGE = "/placeholder.svg?height=1080&width=1920"
@@ -25,20 +21,38 @@ const slides = [
   {
     id: 1,
     image: WEDDING_IMAGES[0],
-    titleKey: "hero.title",
-    subtitleKey: "hero.subtitle",
+    titleKey: "hero.title1",
+    subtitleKey: "hero.subtitle1",
   },
   {
     id: 2,
     image: WEDDING_IMAGES[1],
-    titleKey: "hero.title",
-    subtitleKey: "hero.subtitle",
+    titleKey: "hero.title2",
+    subtitleKey: "hero.subtitle2",
   },
   {
     id: 3,
     image: WEDDING_IMAGES[2],
-    titleKey: "hero.title",
-    subtitleKey: "hero.subtitle",
+    titleKey: "hero.title3",
+    subtitleKey: "hero.subtitle3",
+  },
+  {
+    id: 4,
+    image: WEDDING_IMAGES[3],
+    titleKey: "hero.title4",
+    subtitleKey: "hero.subtitle4",
+  },
+  {
+    id: 5,
+    image: WEDDING_IMAGES[4],
+    titleKey: "hero.title5",
+    subtitleKey: "hero.subtitle5",
+  },
+  {
+    id: 6,
+    image: WEDDING_IMAGES[5],
+    titleKey: "hero.title6",
+    subtitleKey: "hero.subtitle6",
   },
 ]
 
@@ -50,7 +64,6 @@ export default function HeroCarousel() {
   const y = useTransform(scrollY, [0, 500], [0, 150])
   const [mounted, setMounted] = useState(false)
 
-  // Only run on client-side
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -79,7 +92,6 @@ export default function HeroCarousel() {
     return () => clearInterval(interval)
   }, [autoplay])
 
-  // Ensure we have a valid image path - never return an empty string
   const currentSlide = slides[current] || slides[0]
   const currentImagePath = currentSlide?.image || DEFAULT_IMAGE
 
@@ -97,10 +109,9 @@ export default function HeroCarousel() {
           className="absolute inset-0"
           style={{ y }}
         >
-          {/* Only render the Image if we have a valid source */}
           {currentImagePath && (
             <Image
-              src={currentImagePath || "/placeholder.svg"}
+              src={currentImagePath}
               alt="Casamento elegante"
               fill
               priority
@@ -111,7 +122,7 @@ export default function HeroCarousel() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+      <div className="relative z-10 h-full flex flex-col items-center justify-start pt-[20vh] text-center px-4">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -124,7 +135,9 @@ export default function HeroCarousel() {
             <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
               {t(currentSlide.titleKey)}
             </h1>
-            <p className="font-serif text-2xl md:text-3xl text-white mb-8">{t(currentSlide.subtitleKey)}</p>
+            <p className="font-serif text-2xl md:text-3xl text-white mb-8">
+              {t(currentSlide.subtitleKey)}
+            </p>
             <button className="bg-[#cfa144] hover:bg-[#a08c4a] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg">
               {t("hero.button")}
             </button>

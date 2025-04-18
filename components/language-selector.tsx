@@ -35,7 +35,7 @@ export default function LanguageSelector() {
     <div className="relative">
       <button
         onClick={toggleDropdown}
-        className="flex items-center space-x-1 text-[#5c5c5c] hover:text-[#b8a369] transition-colors"
+        className="flex items-center space-x-1 text-[#5c5c5c] hover:text-[#cfa144] transition-colors"
       >
         <span>{language.toUpperCase()}</span>
         <ChevronDown className="w-4 h-4" />
@@ -46,7 +46,7 @@ export default function LanguageSelector() {
           <button
             onClick={() => selectLanguage("pt")}
             className={`block w-full text-left px-4 py-2 text-sm ${
-              language === "pt" ? "bg-[#f8f7f4] text-[#b8a369]" : "text-[#5c5c5c] hover:bg-[#f8f7f4]"
+              language === "pt" ? "bg-[#f8f7f4] text-[#cfa144]" : "text-[#5c5c5c] hover:bg-[#f8f7f4]"
             }`}
           >
             Português
@@ -54,7 +54,7 @@ export default function LanguageSelector() {
           <button
             onClick={() => selectLanguage("en")}
             className={`block w-full text-left px-4 py-2 text-sm ${
-              language === "en" ? "bg-[#f8f7f4] text-[#b8a369]" : "text-[#5c5c5c] hover:bg-[#f8f7f4]"
+              language === "en" ? "bg-[#f8f7f4] text-[#cfa144]" : "text-[#5c5c5c] hover:bg-[#f8f7f4]"
             }`}
           >
             English

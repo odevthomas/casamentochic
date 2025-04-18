@@ -66,7 +66,7 @@ export default function ArticlesSection() {
     <div className="container mx-auto px-4">
       <div className="text-center mb-16">
         <h2 className="font-serif text-3xl md:text-4xl text-[#5c5c5c] mb-4">SEU CASAMENTO</h2>
-        <div className="w-20 h-1 bg-[#b8a369] mx-auto"></div>
+        <div className="w-20 h-1 bg-[#cfa144] mx-auto"></div>
         <p className="mt-6 text-[#5c5c5c] max-w-2xl mx-auto">
           Dicas, inspirações e histórias para ajudar no planejamento do seu casamento.
         </p>
@@ -100,7 +100,7 @@ export default function ArticlesSection() {
       <div className="text-center mt-12">
         <Link
           href="/blog"
-          className="bg-[#b8a369] hover:bg-[#a08c4a] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg inline-block"
+          className="bg-[#cfa144] hover:bg-[#cfa144] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg inline-block"
         >
           Ver Todos os Artigos
         </Link>

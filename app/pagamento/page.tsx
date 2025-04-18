@@ -6,7 +6,7 @@ export default function PaymentPage() {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-serif text-3xl md:text-4xl text-[#5c5c5c] mb-6 text-center">Pagamento</h1>
-          <div className="w-20 h-1 bg-[#b8a369] mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-[#cfa144] mx-auto mb-12"></div>
 
           <div className="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
             <h2 className="font-serif text-2xl text-[#5c5c5c] mb-6">Resumo do Pedido</h2>
@@ -28,14 +28,14 @@ export default function PaymentPage() {
 
             <div className="flex justify-between mb-6">
               <span className="font-serif text-xl text-[#5c5c5c]">Total</span>
-              <span className="font-serif text-xl text-[#b8a369]">R$ 294,00</span>
+              <span className="font-serif text-xl text-[#cfa144]">R$ 294,00</span>
             </div>
 
             <div className="bg-[#f8f7f4] p-4 rounded-md mb-6">
               <div className="flex items-center mb-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-[#b8a369] mr-2"
+                  className="h-5 w-5 text-[#cfa144] mr-2"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -63,10 +63,10 @@ export default function PaymentPage() {
                 <input
                   type="text"
                   id="coupon"
-                  className="flex-grow px-4 py-2 border border-[#e8e6e1] rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#b8a369]"
+                  className="flex-grow px-4 py-2 border border-[#e8e6e1] rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#cfa144]"
                   placeholder="Digite seu cupom"
                 />
-                <button className="bg-[#b8a369] hover:bg-[#a08c4a] text-white px-4 py-2 rounded-r-md transition-colors">
+                <button className="bg-[#cfa144] hover:bg-[#a08c4a] text-white px-4 py-2 rounded-r-md transition-colors">
                   Aplicar
                 </button>
               </div>
@@ -77,13 +77,13 @@ export default function PaymentPage() {
             <h2 className="font-serif text-2xl text-[#5c5c5c] mb-6">Forma de Pagamento</h2>
 
             <div className="space-y-4 mb-8">
-              <div className="border border-[#e8e6e1] rounded-md p-4 cursor-pointer hover:border-[#b8a369] transition-colors">
+              <div className="border border-[#e8e6e1] rounded-md p-4 cursor-pointer hover:border-[#cfa144] transition-colors">
                 <div className="flex items-center">
                   <input
                     type="radio"
                     id="credit-card"
                     name="payment-method"
-                    className="h-4 w-4 text-[#b8a369] focus:ring-[#b8a369]"
+                    className="h-4 w-4 text-[#cfa144] focus:ring-[#cfa144]"
                     defaultChecked
                   />
                   <label htmlFor="credit-card" className="ml-2 block text-[#5c5c5c] font-medium">
@@ -103,13 +103,13 @@ export default function PaymentPage() {
                 </div>
               </div>
 
-              <div className="border border-[#e8e6e1] rounded-md p-4 cursor-pointer hover:border-[#b8a369] transition-colors">
+              <div className="border border-[#e8e6e1] rounded-md p-4 cursor-pointer hover:border-[#cfa144] transition-colors">
                 <div className="flex items-center">
                   <input
                     type="radio"
                     id="pix"
                     name="payment-method"
-                    className="h-4 w-4 text-[#b8a369] focus:ring-[#b8a369]"
+                    className="h-4 w-4 text-[#cfa144] focus:ring-[#cfa144]"
                   />
                   <label htmlFor="pix" className="ml-2 block text-[#5c5c5c] font-medium">
                     PIX
@@ -122,13 +122,13 @@ export default function PaymentPage() {
                 </div>
               </div>
 
-              <div className="border border-[#e8e6e1] rounded-md p-4 cursor-pointer hover:border-[#b8a369] transition-colors">
+              <div className="border border-[#e8e6e1] rounded-md p-4 cursor-pointer hover:border-[#cfa144] transition-colors">
                 <div className="flex items-center">
                   <input
                     type="radio"
                     id="boleto"
                     name="payment-method"
-                    className="h-4 w-4 text-[#b8a369] focus:ring-[#b8a369]"
+                    className="h-4 w-4 text-[#cfa144] focus:ring-[#cfa144]"
                   />
                   <label htmlFor="boleto" className="ml-2 block text-[#5c5c5c] font-medium">
                     Boleto Bancário
@@ -150,7 +150,7 @@ export default function PaymentPage() {
                 <input
                   type="text"
                   id="card-number"
-                  className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#b8a369]"
+                  className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#cfa144]"
                   placeholder="0000 0000 0000 0000"
                 />
               </div>
@@ -163,7 +163,7 @@ export default function PaymentPage() {
                   <input
                     type="text"
                     id="expiry"
-                    className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#b8a369]"
+                    className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#cfa144]"
                     placeholder="MM/AA"
                   />
                 </div>
@@ -174,7 +174,7 @@ export default function PaymentPage() {
                   <input
                     type="text"
                     id="cvv"
-                    className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#b8a369]"
+                    className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#cfa144]"
                     placeholder="123"
                   />
                 </div>
@@ -187,7 +187,7 @@ export default function PaymentPage() {
                 <input
                   type="text"
                   id="card-name"
-                  className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#b8a369]"
+                  className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#cfa144]"
                   placeholder="Como está impresso no cartão"
                 />
               </div>
@@ -198,7 +198,7 @@ export default function PaymentPage() {
                 </label>
                 <select
                   id="installments"
-                  className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#b8a369]"
+                  className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#cfa144]"
                 >
                   <option value="1">À vista - R$ 294,00</option>
                   <option value="2">2x de R$ 147,00 sem juros</option>
@@ -211,7 +211,7 @@ export default function PaymentPage() {
             </div>
 
             <div className="flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0">
-              <Link href="/planos" className="text-[#5c5c5c] hover:text-[#b8a369] transition-colors flex items-center">
+              <Link href="/planos" className="text-[#5c5c5c] hover:text-[#cfa144] transition-colors flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4 mr-1"
@@ -223,7 +223,7 @@ export default function PaymentPage() {
                 </svg>
                 Voltar para planos
               </Link>
-              <button className="bg-[#b8a369] hover:bg-[#a08c4a] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg">
+              <button className="bg-[#cfa144] hover:bg-[#a08c4a] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg">
                 Finalizar Pagamento
               </button>
             </div>

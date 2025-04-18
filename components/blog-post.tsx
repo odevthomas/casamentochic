@@ -49,7 +49,7 @@ export default function BlogPost({ post }: BlogPostProps) {
           {post.category && (
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
               <div className="p-4 w-full">
-                <span className="inline-block bg-[#b8a369] text-white text-xs px-2 py-1 rounded mb-2">
+                <span className="inline-block bg-[#cfa144] text-white text-xs px-2 py-1 rounded mb-2">
                   {post.category}
                 </span>
                 <h3 className="text-white font-serif text-lg md:text-xl">{post.title}</h3>
@@ -59,7 +59,7 @@ export default function BlogPost({ post }: BlogPostProps) {
         </div>
         {!post.category && (
           <div className="p-4">
-            <h3 className="font-serif text-lg text-[#5c5c5c] group-hover:text-[#b8a369] transition-colors">
+            <h3 className="font-serif text-lg text-[#5c5c5c] group-hover:text-[#cfa144] transition-colors">
               {post.title}
             </h3>
             {post.excerpt && <p className="text-[#8c8c8c] mt-2 text-sm">{post.excerpt}</p>}

@@ -149,13 +149,13 @@ export default function TestimonialsSection() {
           {/* Navegação */}
           <button
             onClick={prevGroup}
-            className="absolute top-1/2 left-0 -translate-y-1/2 md:-left-5 bg-white rounded-full p-2 shadow-md text-[#b8a369] hover:text-[#a08c4a] transition-colors"
+            className="absolute top-1/2 left-0 -translate-y-1/2 md:-left-5 bg-white rounded-full p-2 shadow-md text-[#b8a369] hover:text-[#cfa144] transition-colors"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextGroup}
-            className="absolute top-1/2 right-0 -translate-y-1/2 md:-right-5 bg-white rounded-full p-2 shadow-md text-[#b8a369] hover:text-[#a08c4a] transition-colors"
+            className="absolute top-1/2 right-0 -translate-y-1/2 md:-right-5 bg-white rounded-full p-2 shadow-md text-[#b8a369] hover:text-[#cfa144] transition-colors"
           >
             <ChevronRight className="w-6 h-6" />
           </button>

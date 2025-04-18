@@ -53,7 +53,7 @@ export default function PricingSection() {
     <div className="container mx-auto px-4">
       <div className="text-center mb-16">
         <h2 className="font-serif text-3xl md:text-4xl text-[#5c5c5c] mb-4">NOSSOS PLANOS</h2>
-        <div className="w-20 h-1 bg-[#b8a369] mx-auto"></div>
+        <div className="w-20 h-1 bg-[#cfa144] mx-auto"></div>
         <p className="mt-6 text-[#5c5c5c] max-w-2xl mx-auto">
           Escolha o plano ideal para o seu projeto com total liberdade e suporte técnico completo.
         </p>
@@ -64,25 +64,25 @@ export default function PricingSection() {
           <div
             key={plan.id}
             className={`bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg relative ${
-              plan.popular ? "border-2 border-[#b8a369]" : ""
+              plan.popular ? "border-2 border-[#cfa144]" : ""
             }`}
           >
             {plan.popular && (
-              <div className="absolute top-0 right-0 bg-[#b8a369] text-white px-4 py-1 text-sm font-serif">
+              <div className="absolute top-0 right-0 bg-[#cfa144] text-white px-4 py-1 text-sm font-serif">
                 Popular
               </div>
             )}
             <div className="p-8 text-center">
               <h3 className="font-serif text-2xl text-[#5c5c5c] mb-2">{plan.name}</h3>
               <div className="mb-6">
-                <span className="font-serif text-4xl text-[#b8a369]">{plan.price}</span>
+                <span className="font-serif text-4xl text-[#cfa144]">{plan.price}</span>
                 <span className="text-[#8c8c8c] text-sm"> {plan.period}</span>
               </div>
               <ul className="space-y-3 mb-8 text-left">
                 {plan.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
                     <svg
-                      className="h-5 w-5 text-[#b8a369] mr-2 mt-0.5"
+                      className="h-5 w-5 text-[#cfa144] mr-2 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -98,7 +98,7 @@ export default function PricingSection() {
                 href={plan.link}
                 className={`inline-block w-full py-3 px-6 rounded-md font-serif transition-colors ${
                   plan.popular
-                    ? "bg-[#b8a369] hover:bg-[#a08c4a] text-white"
+                    ? "bg-[#cfa144] hover:bg-[#cfa144] text-white"
                     : "bg-[#f8f7f4] hover:bg-[#e8e6e1] text-[#5c5c5c]"
                 }`}
               >

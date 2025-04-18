@@ -60,7 +60,7 @@ export default function TeamSection() {
               <h3 className="font-serif text-xl text-[#5c5c5c] mb-1">{member.name}</h3>
               <p className="text-[#8c8c8c] mb-4">{member.role}</p>
               <div className="flex justify-center space-x-4">
-                <a href={member.social.facebook} className="text-[#cfa144] hover:text-[#a08c4a] transition-colors">
+                <a href={member.social.facebook} className="text-[#cfa144] hover:text-[#cfa144] transition-colors">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -75,7 +75,7 @@ export default function TeamSection() {
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </a>
-                <a href={member.social.instagram} className="text-[#cfa144] hover:text-[#a08c4a] transition-colors">
+                <a href={member.social.instagram} className="text-[#cfa144] hover:text-[#cfa144] transition-colors">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -92,7 +92,7 @@ export default function TeamSection() {
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>
                 </a>
-                <a href={member.social.linkedin} className="text-[#cfa144] hover:text-[#a08c4a] transition-colors">
+                <a href={member.social.linkedin} className="text-[#cfa144] hover:text-[#cfa144] transition-colors">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"

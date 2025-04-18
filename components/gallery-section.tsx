@@ -61,7 +61,7 @@ export default function GallerySection() {
       </div>
 
       <div className="text-center mt-12">
-        <button className="bg-[#cfa144] hover:bg-[#a08c4a] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg">
+        <button className="bg-[#cfa144] hover:bg-[#cfa144] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg">
           Ver Mais Fotos
         </button>
       </div>

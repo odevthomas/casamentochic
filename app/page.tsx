@@ -160,6 +160,9 @@ export default function Home() {
         <section id="depoimentos" className="py-10">
           <TestimonialsSection />
         </section>
+        <section  className="py-10">
+          <WhatsappButton />
+        </section>
 
         <section className="py-10 bg-[#222]">
           <InstagramSection />
@@ -169,9 +172,16 @@ export default function Home() {
           <section id="blog" className="py-20 bg-white">
           <ArticlesSection />
         </section>
+          <section id="inspiracoes" className="py-20 bg-white">
+          <InspirationSection />
+        </section>
 
         <section id="equipe" className="py-10">
           <TeamSection />
+        </section>
+        
+        <section  className="py-10">
+          <MapSection />
         </section>
 
         <section id="contato" className="py-10 bg-gray-100">

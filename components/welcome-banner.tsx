@@ -14,7 +14,7 @@ export default function WelcomeBanner() {
           </p>
           <Link
             href="/download"
-            className="inline-block bg-[#cfa144] hover:bg-[#a08c4a] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg"
+            className="inline-block bg-[#cfa144] hover:bg-[#cfa144] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg"
           >
             Baixar Lista Gratuita
           </Link>

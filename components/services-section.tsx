@@ -44,7 +44,7 @@ export default function ServicesSection() {
     <div className="container mx-auto px-4 py-16 flex flex-col items-center justify-center">
       <div className="text-center mb-16">
         <h2 className="font-serif text-3xl md:text-4xl text-[#5c5c5c] mb-4">SERVIÇOS</h2>
-        <div className="w-20 h-1 bg-[#b8a369] mx-auto"></div>
+        <div className="w-20 h-1 bg-[#cfa144] mx-auto"></div>
         <p className="mt-6 text-[#5c5c5c] max-w-2xl mx-auto">
           Conheça nossas soluções para realizar o casamento dos seus sonhos sem comprometer seu orçamento.
         </p>
@@ -53,15 +53,15 @@ export default function ServicesSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
         {services.map((service) => (
           <Link href={service.link} key={service.id} className="group block w-full max-w-sm">
-            <div className="bg-white border border-[#b8a369]/40 rounded-[12px] shadow-sm hover:shadow-lg transition-shadow duration-300 h-full p-6 flex flex-col items-center text-center">
-              <div className="w-14 h-14 bg-[#b8a369] rounded-md flex items-center justify-center mb-4 text-white">
+            <div className="bg-white border border-[#cfa144]/40 rounded-[12px] shadow-sm hover:shadow-lg transition-shadow duration-300 h-full p-6 flex flex-col items-center text-center">
+              <div className="w-14 h-14 bg-[#cfa144] rounded-md flex items-center justify-center mb-4 text-white">
                 <span className="text-lg font-bold">{service.id}</span>
               </div>
-              <h3 className="font-serif text-lg text-[#5c5c5c] mb-2 group-hover:text-[#b8a369] transition-colors">
+              <h3 className="font-serif text-lg text-[#5c5c5c] mb-2 group-hover:text-[#cfa144] transition-colors">
                 {service.title}
               </h3>
               <p className="text-[#5c5c5c] mb-4 text-sm">{service.description}</p>
-              <span className="inline-flex items-center text-[#b8a369] font-medium text-sm">
+              <span className="inline-flex items-center text-[#cfa144] font-medium text-sm">
                 Saiba mais
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

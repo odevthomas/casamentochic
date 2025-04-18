@@ -41,7 +41,7 @@ export default function MessagePopup() {
         </div>
         <div>
           <p className="font-serif text-[#5c5c5c] mb-2">Pronta para realizar o seu sonho? Estamos aqui com você!</p>
-          <button onClick={handleClose} className="text-[#cfa144] hover:text-[#a08c4a] text-sm font-serif">
+          <button onClick={handleClose} className="text-[#cfa144] hover:text-[#cfa144] text-sm font-serif">
             Agendar consultoria gratuita
           </button>
         </div>

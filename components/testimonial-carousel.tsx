@@ -11,15 +11,8 @@ import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 
-// Substitua as URLs de imagens por URLs reais
-const WEDDING_IMAGES = [
-  "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=1920&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1920&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=1920&auto=format&fit=crop",
-]
-
-const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=400&auto=format&fit=crop"
+// Define fixed image paths to avoid any empty strings
+const WEDDING_IMAGES = ["/images/wedding1.png", "/images/wedding2.png", "/images/wedding3.png", "/images/wedding4.png"]
 
 const testimonials = [
   {
@@ -92,56 +85,53 @@ export default function TestimonialCarousel() {
         speed={800}
         className="py-10"
       >
-        {testimonials.map((testimonial) => {
-          // Verificação rigorosa para garantir que temos uma imagem válida
-          const imageSrc =
-            typeof testimonial.image === "string" && testimonial.image.trim().length > 0
-              ? testimonial.image
-              : DEFAULT_IMAGE
-
-          return (
-            <SwiperSlide key={testimonial.id}>
-              <div className="bg-white rounded-lg shadow-md p-6 h-full flex flex-col">
-                <div className="flex items-center mb-4">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-[#b8a369]">
-                    <Image src={imageSrc || "/placeholder.svg"} alt={testimonial.name} fill className="object-cover" />
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-lg text-[#5c5c5c]">{testimonial.name}</h3>
-                    <p className="text-sm text-[#8c8c8c]">{testimonial.role}</p>
-                  </div>
+        {testimonials.map((testimonial) => (
+          <SwiperSlide key={testimonial.id}>
+            <div className="bg-white rounded-lg shadow-md p-6 h-full flex flex-col">
+              <div className="flex items-center mb-4">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-[#cfa144]">
+                  <Image
+                    src={testimonial.image || "/placeholder.svg"}
+                    alt={testimonial.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <p className="text-[#5c5c5c] italic flex-grow">{testimonial.content}</p>
-                <div className="mt-4 flex justify-end">
-                  <svg className="w-5 h-5 text-[#b8a369]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                  <svg className="w-5 h-5 text-[#b8a369]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                  <svg className="w-5 h-5 text-[#b8a369]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                  <svg className="w-5 h-5 text-[#b8a369]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                  <svg className="w-5 h-5 text-[#b8a369]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
+                <div>
+                  <h3 className="font-serif text-lg text-[#5c5c5c]">{testimonial.name}</h3>
+                  <p className="text-sm text-[#8c8c8c]">{testimonial.role}</p>
                 </div>
               </div>
-            </SwiperSlide>
-          )
-        })}
+              <p className="text-[#5c5c5c] italic flex-grow">{testimonial.content}</p>
+              <div className="mt-4 flex justify-end">
+                <svg className="w-5 h-5 text-[#cfa144]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg className="w-5 h-5 text-[#cfa144]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg className="w-5 h-5 text-[#cfa144]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg className="w-5 h-5 text-[#cfa144]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg className="w-5 h-5 text-[#cfa144]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <button className="testimonial-prev absolute top-1/2 left-0 z-10 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md">
-        <ChevronLeft className="w-6 h-6 text-[#b8a369]" />
+        <ChevronLeft className="w-6 h-6 text-[#cfa144]" />
         <span className="sr-only">Anterior</span>
       </button>
 
       <button className="testimonial-next absolute top-1/2 right-0 z-10 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md">
-        <ChevronRight className="w-6 h-6 text-[#b8a369]" />
+        <ChevronRight className="w-6 h-6 text-[#cfa144]" />
         <span className="sr-only">Próximo</span>
       </button>
     </div>

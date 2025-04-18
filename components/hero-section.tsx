@@ -36,7 +36,7 @@ export default function HeroSection() {
           </p>
           <button
             onClick={() => setShowForm(true)}
-            className="bg-[#cfa144] hover:bg-[#a08c4a] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg"
+            className="bg-[#cfa144] hover:bg-[#cfa144] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg"
           >
             EU VOU CASAR
           </button>

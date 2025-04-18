@@ -77,12 +77,12 @@ export default function ServicesList() {
                 )}
               </div>
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="font-serif text-xl text-[#5c5c5c] mb-2 group-hover:text-[#b8a369] transition-colors">
+                <h3 className="font-serif text-xl text-[#5c5c5c] mb-2 group-hover:text-[#cfa144] transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-[#5c5c5c] mb-4 flex-grow">{service.description}</p>
                 <div className="mt-auto">
-                  <span className="inline-flex items-center text-[#b8a369] font-serif">
+                  <span className="inline-flex items-center text-[#cfa144] font-serif">
                     Saiba mais
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

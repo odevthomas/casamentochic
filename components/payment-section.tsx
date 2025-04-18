@@ -77,7 +77,7 @@ export default function PaymentSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-serif text-3xl md:text-4xl text-[#5c5c5c] mb-4">FORMAS DE PAGAMENTO</h2>
-          <div className="w-20 h-1 bg-[#b8a369] mx-auto"></div>
+          <div className="w-20 h-1 bg-[#cfa144] mx-auto"></div>
           <p className="mt-6 text-[#5c5c5c] max-w-2xl mx-auto">
             Oferecemos diversas opções de pagamento para sua comodidade.
           </p>
@@ -86,7 +86,7 @@ export default function PaymentSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {paymentMethods.map((method) => (
             <div key={method.id} className="bg-[#f8f7f4] rounded-lg p-6 text-center">
-              <div className="w-16 h-16 bg-[#b8a369] rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+              <div className="w-16 h-16 bg-[#cfa144] rounded-full flex items-center justify-center mx-auto mb-4 text-white">
                 {method.icon}
               </div>
               <h3 className="font-serif text-xl text-[#5c5c5c] mb-2">{method.name}</h3>

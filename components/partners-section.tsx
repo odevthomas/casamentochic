@@ -51,7 +51,7 @@ export default function PartnersSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-serif text-3xl md:text-4xl text-[#5c5c5c] mb-4">PARCEIROS</h2>
-          <div className="w-20 h-1 bg-[#b8a369] mx-auto"></div>
+          <div className="w-20 h-1 bg-[#cfa144] mx-auto"></div>
           <p className="mt-6 text-[#5c5c5c] max-w-2xl mx-auto">
             Conheça os fornecedores parceiros que oferecem condições especiais para nossas noivas.
           </p>
@@ -87,7 +87,7 @@ export default function PartnersSection() {
         <div className="text-center mt-12">
           <a
             href="/parceiros"
-            className="inline-flex items-center text-[#b8a369] hover:text-[#a08c4a] transition-colors font-serif"
+            className="inline-flex items-center text-[#cfa144] hover:text-[#cfa144] transition-colors font-serif"
           >
             <span>Ver todos os parceiros</span>
             <svg

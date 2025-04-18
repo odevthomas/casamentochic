@@ -74,7 +74,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#b8a369]"
+          className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#cfa144]"
           placeholder="Seu nome completo"
         />
       </div>
@@ -90,7 +90,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#b8a369]"
+          className="w-full px-4 py-2 border border-[#e8e6e1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#cfa144]"
           placeholder="seu@email.com"
         />
       </div>
@@ -98,7 +98,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-[#b8a369] hover:bg-[#a08c4a] text-white font-serif py-2 px-4 rounded-md transition-colors disabled:opacity-70"
+        className="w-full bg-[#cfa144] hover:bg-[#cfa144] text-white font-serif py-2 px-4 rounded-md transition-colors disabled:opacity-70"
       >
         {isSubmitting ? "Enviando..." : "Enviar"}
       </button>
