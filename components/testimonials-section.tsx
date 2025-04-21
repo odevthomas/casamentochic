@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { ChevronLeft, ChevronRight, Play, X } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 
 const WEDDING_IMAGES = [
   "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920&auto=format&fit=crop",

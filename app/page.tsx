@@ -179,8 +179,8 @@ export default function Home() {
         <section id="equipe" className="py-10">
           <TeamSection />
         </section>
-        
-        <section  className="py-10">
+
+        <section  className="py-10 bg-[#222]">
           <MapSection />
         </section>
 
