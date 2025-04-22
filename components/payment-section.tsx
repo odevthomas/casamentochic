@@ -1,73 +1,19 @@
 import Image from "next/image"
-import Link from "next/link"
+import { motion } from "framer-motion"
 
-// Definindo uma imagem padrão para casos de erro
-const DEFAULT_IMAGE = "/placeholder.svg?height=100&width=200"
+const DEFAULT_IMAGE = "/placeholder.svg"
 
 const paymentMethods = [
   {
-    id: 1,
-    name: "Cartão de Crédito",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="2" y="5" width="20" height="14" rx="2" />
-        <line x1="2" y1="10" x2="22" y2="10" />
-      </svg>
-    ),
-    description: "Parcele em até 12x",
+   
+    icon: "/mercado-pago.svg",
   },
   {
-    id: 2,
-    name: "Pix",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-      </svg>
-    ),
-    description: "Pagamento instantâneo",
+   
+    icon: "/pix-banco-central.svg",
   },
   {
-    id: 3,
-    name: "Transferência Bancária",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="2" y="5" width="20" height="14" rx="2" />
-        <line x1="2" y1="10" x2="22" y2="10" />
-        <line x1="7" y1="15" x2="7" y2="15" />
-        <line x1="12" y1="15" x2="12" y2="15" />
-      </svg>
-    ),
-    description: "TED ou DOC",
+    icon: "/hotmart.svg",
   },
 ]
 
@@ -83,15 +29,25 @@ export default function PaymentSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {paymentMethods.map((method) => (
-            <div key={method.id} className="bg-[#f8f7f4] rounded-lg p-6 text-center">
-              <div className="w-16 h-16 bg-[#cfa144] rounded-full flex items-center justify-center mx-auto mb-4 text-white">
-                {method.icon}
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+          {paymentMethods.map((method, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center"
+            >
+              <div className="relative h-32 w-52 mb-2">
+                <Image
+                  src={method.icon || DEFAULT_IMAGE}
+                  fill
+                  className="object-contain"
+                />
               </div>
-              <h3 className="font-serif text-xl text-[#5c5c5c] mb-2">{method.name}</h3>
-              <p className="text-[#8c8c8c]">{method.description}</p>
-            </div>
+              <p className="text-sm text-gray-500">{method.name}</p>
+            </motion.div>
           ))}
         </div>
       </div>

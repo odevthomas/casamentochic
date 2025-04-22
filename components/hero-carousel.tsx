@@ -4,15 +4,18 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
-import { useLanguage } from "./language-provider"
+import { useLanguage } from "../language-provider"
 
 const WEDDING_IMAGES = [
   "/image/Hero/hero1.webp",
-  "/image/Hero/hero2.webp",
   "/image/Hero/hero3.webp",
-  "/image/Hero/hero4.webp",
   "/image/Hero/hero5.webp",
   "/image/Hero/hero6.webp",
+  "/image/Hero/hero7.webp",
+  "/image/Hero/hero8.webp",
+  "/image/Hero/hero9.webp",
+  "/image/Hero/hero2.webp",
+  "/image/Hero/hero10.webp",
 ]
 
 const DEFAULT_IMAGE = "/placeholder.svg?height=1080&width=1920"

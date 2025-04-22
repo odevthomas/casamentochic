@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { something } from '../shared/lib/utils';
 
 import HeroCarousel from "@/components/hero-carousel";
 import AboutSection from "@/components/about-section";
@@ -10,7 +11,7 @@ import HairstyleSection from "@/components/hairstyle-section";
 import InstagramSection from "@/components/instagram-section";
 import ServicesSection from "@/components/services-section";
 import PricingSection from "@/components/pricing-section";
-import ArticlesSection from "@/components/articles-section"
+import ArticlesSection from "@/components/articles-section";
 import ContactSection from "@/components/contact-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import PartnersSection from "@/components/partners-section";
@@ -20,6 +21,9 @@ import PaymentSection from "@/components/payment-section";
 import WhatsappButton from "@/components/whatsapp-button";
 import LanguageSelector from "@/components/language-selector";
 import ParallaxSection from "@/components/parallax-section";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 import {
   Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle
@@ -29,7 +33,6 @@ import {
 } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 
-// Navegação
 const NAV_ITEMS = [
   { name: "Início", href: "#home" },
   { name: "Sobre", href: "#sobre" },
@@ -37,11 +40,10 @@ const NAV_ITEMS = [
   { name: "Galeria", href: "#galeria" },
   { name: "Serviços", href: "#servicos" },
   { name: "Planos", href: "#planos" },
-  { name: "Artigos", href: "#artigos" },
+  { name: "Artigos", href: "#portfolio" },
   { name: "Contato", href: "#contato" },
 ];
 
-// Redes Sociais
 const SOCIAL_LINKS = [
   {
     name: 'Facebook',
@@ -69,7 +71,6 @@ const SOCIAL_LINKS = [
   }
 ];
 
-// Artigos mockados
 const articles = [
   {
     slug: 'casamento-dos-sonhos',
@@ -100,14 +101,12 @@ const articles = [
 export default function Home() {
   const [activeTab, setActiveTab] = useState('all');
 
-  // Corrigido: Movi a constante filteredArticles para dentro do componente Home
   const filteredArticles = articles.filter(article =>
     activeTab === 'all' || article.category === activeTab
   );
 
   return (
     <div className="min-h-screen">
-      {/* HEADER */}
       <header className="fixed top-0 z-50 w-full bg-white/90 backdrop-blur-sm border-b border-[#e8e6e1] shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" className="font-serif text-2xl text-[#cfa144] font-medium">
@@ -141,43 +140,87 @@ export default function Home() {
         </div>
       </header>
 
-      {/* MAIN */}
       <main className="pt-24">
         <section id="home"><HeroCarousel /></section>
-        <section id="sobre" className="py-10">
-          <AboutSection />
+        <section id="sobre" className="py-10"><AboutSection /></section>
+        <section id="servicos" className="py-10 bg-white"><ServicesSection /></section>
+        <section id="planos" className="py-10 bg-[#f8f7f4]"><PricingSection /></section>
+        <section id="pagamento" className="py-10"><PaymentSection /></section>
+        <section id="depoimentos" className="py-10"><TestimonialsSection /></section>
+        <section className="py-10"><WhatsappButton /></section>
+        <section className="py-10 bg-[#222]"><InstagramSection /></section>
+
+        <section id="portfolio" className="py-20 px-4 bg-white">
+          <div className="container mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl sm:text-4xl text-[#222] mb-4">SEU CASAMNTO</h2>
+              <div className="w-20 h-1 bg-[#cfa144] mx-auto"></div>
+
+              <p className="mt-4 text-[#222] max-w-2xl mx-auto text-sm sm:text-base">Clique na foto e veja a Materia </p>
+            </div>
+
+            <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
+  <div className="flex justify-center mb-8 overflow-x-auto pb-2">
+    <TabsList className="bg-[#222] text-white rounded-full px-2">
+      {[
+        { value: 'all', label: 'Mostrar Tudo' },
+        { value: 'casamento-chic', label: 'Casamento Chic' },
+        { value: 'gastando-pouco', label: 'Gastando Pouco' },
+        { value: 'novas', label: 'Matérias Novas' },
+        { value: 'origem', label: 'Origem do Casamento' }
+      ].map((tab) => (
+        <TabsTrigger
+          key={tab.value}
+          value={tab.value}
+          className="px-4 py-2 mx-1 text-sm font-medium transition-colors duration-300 rounded-full 
+                     hover:text-[#cfa144] 
+                     data-[state=active]:text-[#cfa144] 
+                     data-[state=active]:border-b-2 
+                     data-[state=active]:border-[#cfa144]"
+        >
+          {tab.label}
+        </TabsTrigger>
+      ))}
+    </TabsList>
+  </div>
+
+  <TabsContent value={activeTab} className="mt-0">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {filteredArticles.map((article, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: index * 0.1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="group cursor-pointer"
+        >
+          <Link href={`/artigo/${article.slug}`}>
+            <div className="relative aspect-[3/4] overflow-hidden rounded-md shadow-md">
+              <Image
+                src={article.image || "/placeholder.svg?height=600&width=400"}
+                alt={article.title}
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end">
+                <div className="p-4 w-full">
+                  <h3 className="font-serif text-xl text-white">{article.title}</h3>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </motion.div>
+      ))}
+    </div>
+  </TabsContent>
+</Tabs>
+
+          </div>
         </section>
 
-        <section id="servicos" className="py-10 bg-white">
-          <ServicesSection />
-        </section>
-        <section id="planos" className="py-10 bg-[#f8f7f4]">
-          <PricingSection />
-        </section>
-        <section id="pagamento" className="py-10">
-          <PaymentSection />
-        </section>
-        <section id="depoimentos" className="py-10">
-          <TestimonialsSection />
-        </section>
-        <section  className="py-10">
-          <WhatsappButton />
-        </section>
-
-        <section className="py-10 bg-[#222]">
-          <InstagramSection />
-        </section>
-
-          {/* Articles Section */}
-          <section id="blog" className="py-20 bg-white">
-          <ArticlesSection />
-        </section>
-          <section id="inspiracoes" className="py-20 bg-white">
+        <section id="inspiracoes" className="py-20 bg-white">
           <InspirationSection />
-        </section>
-
-        <section id="equipe" className="py-10">
-          <TeamSection />
         </section>
 
         <section  className="py-10 bg-[#222]">

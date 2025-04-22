@@ -1,5 +1,4 @@
 import Image from "next/image"
-import CountUp from "react-countup"
 
 const MAP_IMAGE = "/Mapa4.png"
 
@@ -24,7 +23,7 @@ export default function MapSection() {
             priority
           />
           <div className="absolute inset-0">
-            {[ 
+            {[
               { top: "68%", left: "36%", label: "Brasil" },
               { top: "30%", left: "29%", label: "Groenlândia" },
               { top: "20%", left: "24%", label: "EUA" },
@@ -50,21 +49,15 @@ export default function MapSection() {
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div className="text-center">
-            <div className="text-[#cfa144] text-4xl font-serif mb-1">
-              <CountUp end={15} duration={2} />+
-            </div>
+            <div className="text-[#cfa144] text-4xl font-serif mb-1">15+</div>
             <p className="text-[#FFF] text-sm">Cidades no Brasil</p>
           </div>
           <div className="text-center">
-            <div className="text-[#cfa144] text-4xl font-serif mb-1">
-              <CountUp end={8} duration={2} />+
-            </div>
+            <div className="text-[#cfa144] text-4xl font-serif mb-1">8+</div>
             <p className="text-[#FFF] text-sm">Países</p>
           </div>
           <div className="text-center">
-            <div className="text-[#cfa144] text-4xl font-serif mb-1">
-              <CountUp end={500} duration={3} />+
-            </div>
+            <div className="text-[#cfa144] text-4xl font-serif mb-1">500+</div>
             <p className="text-[#FFF] text-sm">Casamentos realizados</p>
           </div>
         </div>

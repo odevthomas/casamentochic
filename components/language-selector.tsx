@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { ChevronDown } from "lucide-react"
-import { useLanguage } from "./language-provider"
+import { useLanguage } from "../language-provider"
 
 export default function LanguageSelector() {
   const [isOpen, setIsOpen] = useState(false)
