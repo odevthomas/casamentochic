@@ -8,10 +8,10 @@ import FormModal from "@/components/form-modal";
 
 const WEDDING_IMAGES = [
   "/image/Hero/hero3.webp",
+  "/image/Hero/hero7.webp",
   "/image/Hero/hero5.webp",
   "/image/Hero/hero6.webp",
-  "/image/Hero/hero7.webp",
-  "/image/Hero/hero9.webp",
+   "/image/Hero/hero9.webp",
 ];
 
 const DEFAULT_IMAGE = "/placeholder.svg?height=1080&width=1920";

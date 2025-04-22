@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { articles as articleData } from './data/articles'; // Importando a lista de artigos corretamente
 
 import HeroCarousel from '@/components/hero-carousel';
@@ -65,15 +65,32 @@ const SOCIAL_LINKS = [
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('all');
+  const [isHidden, setIsHidden] = useState(false);
+  let lastScrollTop = 0;
 
   const filteredArticles = articleData.filter((article) => activeTab === 'all' || article.category === activeTab);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        setIsHidden(true); // Scroll para baixo, ocultar o header
+      } else {
+        setIsHidden(false); // Scroll para cima, mostrar o header
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen">
-      <header className="fixed top-0 z-50 w-full">
+      <header className={`fixed top-0 z-50 w-full transition-transform duration-300 ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <a href="/" className="font-serif text-2xl text-[#cfa144] font-medium">
-            Casamento Chic
+          <a href="/" className="flex items-center">
+            <img src="/favicon.png" alt="Logo Casamento Chic" className="h-20 w-20" />
           </a>
 
           <nav className="hidden md:flex items-center space-x-8">
@@ -96,8 +113,7 @@ export default function Home() {
           </div>
         </div>
       </header>
-
-      <main className="pt-18">
+        <main className="pt-18">
         <section id="home">
           <HeroCarousel />
         </section>
