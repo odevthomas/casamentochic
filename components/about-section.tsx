@@ -11,7 +11,7 @@ export default function AboutSection() {
 
   return (
     <div className="container mx-auto px-4">
-      <section className="py-20 bg-white">
+      <section className="py-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl text-[#5c5c5c] mb-4">
             Oi Noiva! Como você se sente?

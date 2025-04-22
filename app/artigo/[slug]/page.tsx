@@ -61,8 +61,9 @@ export default function ArticlePage() {
       <header className="bg-white shadow-sm sticky top-0 z-40">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="font-serif text-2xl font-bold">
-            Casamento Chic
+          <img src="/favicon.png" alt="Logo Casamento Chic" className="h-20 w-20" />
           </Link>
+         
           <Button onClick={() => router.push("/")} variant="ghost" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" /> Voltar
           </Button>
