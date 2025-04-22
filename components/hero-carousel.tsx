@@ -6,11 +6,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
 const WEDDING_IMAGES = [
-  "/image/Hero/hero3.webp",
-  "/image/Hero/hero7.webp",
-  "/image/Hero/hero5.webp",
-  "/image/Hero/hero6.webp",
-  "/image/Hero/hero9.webp",
+  "/Image/Hero/hero10.webp",
+  "/Image/Hero/hero3.webp",
+  "/Image/Hero/hero7.webp",
+  "/Image/Hero/hero5.webp",
+  "/Image/Hero/hero9.webp",
 ];
 
 const DEFAULT_IMAGE = "/placeholder.svg?height=1080&width=1920";
@@ -39,14 +39,9 @@ const slides = [
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
-  const [mounted, setMounted] = useState(false);
 
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const nextSlide = () => setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   const prevSlide = () => setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
@@ -66,8 +61,6 @@ export default function HeroCarousel() {
   const currentSlide = slides[current] || slides[0];
   const currentImagePath = currentSlide?.image || DEFAULT_IMAGE;
 
-  if (!mounted) return null;
-
   return (
     <div className="relative h-screen overflow-hidden">
       {/* Background Image */}
@@ -77,7 +70,7 @@ export default function HeroCarousel() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.5 }}
+          transition={{ duration: 0.6 }}
           className="absolute inset-0"
           style={{ y }}
         >
@@ -85,7 +78,7 @@ export default function HeroCarousel() {
             src={currentImagePath}
             alt="Casamento elegante"
             fill
-            priority
+            priority={current === 0}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
@@ -100,7 +93,7 @@ export default function HeroCarousel() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto"
           >
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight tracking-wider">
