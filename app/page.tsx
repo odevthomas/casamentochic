@@ -6,12 +6,9 @@ import { articles as articleData } from './data/articles'; // Importando a lista
 import HeroCarousel from '@/components/hero-carousel';
 import AboutSection from '@/components/about-section';
 import TeamSection from '@/components/team-section';
-import GallerySection from '@/components/gallery-section';
-import HairstyleSection from '@/components/hairstyle-section';
 import InstagramSection from '@/components/instagram-section';
 import ServicesSection from '@/components/services-section';
 import PricingSection from '@/components/pricing-section';
-import ArticlesSection from '@/components/articles-section';
 import ContactSection from '@/components/contact-section';
 import TestimonialsSection from '@/components/testimonials-section';
 import PartnersSection from '@/components/partners-section';
@@ -20,7 +17,6 @@ import InspirationSection from '@/components/inspiration-section';
 import PaymentSection from '@/components/payment-section';
 import WhatsappButton from '@/components/whatsapp-button';
 import LanguageSelector from '@/components/language-selector';
-import ParallaxSection from '@/components/parallax-section';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -103,7 +99,7 @@ export default function Home() {
 
           <div className="flex items-center space-x-4">
             <LanguageSelector />
-            <button className="md:hidden text-[#5c5c5c]">
+            <button className="md:hidden text-[#FFF]">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="12" x2="21" y2="12"></line>
