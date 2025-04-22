@@ -1,34 +1,34 @@
-import Image from "next/image"
-import Link from "next/link"
-import type { Metadata } from "next"
-import { Button } from "@/components/ui/button"
-import { articles } from "@/app/data/articles"
-import { LanguageSelector } from "@/components/LanguageSelector" 
+import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { articles } from "@/app/data/articles";
+import LanguageSelector  from "@/components/language-selector";
 
 export const metadata: Metadata = {
   title: "Blog | Casamento Chic Pagando Pouco",
   description: "Dicas, inspirações e guias para realizar o casamento dos seus sonhos gastando menos.",
-}
+};
 
 const NAV_ITEMS = [
   { name: "Início", href: "/" },
   { name: "Sobre", href: "/sobre" },
   { name: "Serviços", href: "/servicos" },
   { name: "Contato", href: "/contato" },
-]
+];
 
 export default function BlogPage() {
-  const scrollToSection = (id: string) => {}
+  const scrollToSection = (id: string) => {};
 
   const categories = [
     { id: "all", name: "Todos os Artigos" },
     { id: "casamento-chic", name: "Casamento Chic" },
     { id: "gastando-pouco", name: "Gastando Pouco" },
     { id: "origem", name: "Origem do Casamento" },
-  ]
+  ];
 
-  const featuredArticles = articles.slice(0, 3)
-  const regularArticles = articles.slice(3)
+  const featuredArticles = articles.slice(0, 3);
+  const regularArticles = articles.slice(3);
 
   return (
     <main className="min-h-screen bg-background">
@@ -52,9 +52,7 @@ export default function BlogPage() {
           <div className="flex items-center space-x-4">
             <LanguageSelector />
             <button className="md:hidden text-[#5c5c5c]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -95,7 +93,7 @@ export default function BlogPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end">
                       <div className="p-4 w-full">
-                        <span className="inline-block px-2 py-1 bg-[#222]text-white text-xs rounded mb-2">
+                        <span className="inline-block px-2 py-1 bg-[#222] text-white text-xs rounded mb-2">
                           {article.category === "casamento-chic"
                             ? "Casamento Chic"
                             : article.category === "gastando-pouco"
@@ -112,7 +110,7 @@ export default function BlogPage() {
                 <h3 className="font-serif text-xl mb-2">{article.title}</h3>
                 <p className="text-gray-600 text-sm mb-2">{article.date}</p>
                 <p className="text-gray-700 line-clamp-3 mb-4">{article.excerpt}</p>
-                <Link href={`/artigo/${article.slug}`} className="text-[#222]hover:text-amber-700 font-medium">
+                <Link href={`/artigo/${article.slug}`} className="text-[#222] hover:text-amber-700 font-medium">
                   Ler mais →
                 </Link>
               </div>
@@ -130,7 +128,7 @@ export default function BlogPage() {
               <Button
                 key={category.id}
                 variant="outline"
-                className="border-[#222]text-[#222]hover:bg-amber-600/10"
+                className="border-[#222] text-[#222] hover:bg-amber-600/10"
               >
                 {category.name}
               </Button>
@@ -147,7 +145,7 @@ export default function BlogPage() {
                     className="object-cover"
                   />
                   <div className="absolute top-2 left-2">
-                    <span className="inline-block px-2 py-1 bg-[#222]text-white text-xs rounded">
+                    <span className="inline-block px-2 py-1 bg-[#222] text-white text-xs rounded">
                       {article.category === "casamento-chic"
                         ? "Casamento Chic"
                         : article.category === "gastando-pouco"
@@ -162,7 +160,7 @@ export default function BlogPage() {
                   <p className="text-gray-500 text-sm mb-2">{article.date}</p>
                   <h3 className="font-serif text-xl mb-2">{article.title}</h3>
                   <p className="text-gray-700 line-clamp-3 mb-4">{article.excerpt}</p>
-                  <Link href={`/artigo/${article.slug}`} className="text-[#222]hover:text-amber-700 font-medium">
+                  <Link href={`/artigo/${article.slug}`} className="text-[#222] hover:text-amber-700 font-medium">
                     Ler mais →
                   </Link>
                 </div>
@@ -172,47 +170,54 @@ export default function BlogPage() {
           {/* Pagination */}
           <div className="flex justify-center mt-12">
             <div className="flex gap-2">
-              <Button variant="outline" className="border-gray-300">Anterior</Button>
-              <Button className="bg-[#222]hover:bg-amber-700">1</Button>
-              <Button variant="outline" className="border-gray-300">2</Button>
-              <Button variant="outline" className="border-gray-300">3</Button>
-              <Button variant="outline" className="border-gray-300">Próxima</Button>
+              <Button variant="outline" className="border-gray-300">
+                Anterior
+              </Button>
+              <Button className="bg-[#222] hover:bg-amber-700">1</Button>
+              <Button variant="outline" className="border-gray-300">
+                2
+              </Button>
+              <Button variant="outline" className="border-gray-300">
+                3
+              </Button>
+              <Button variant="outline" className="border-gray-300">
+                Próxima
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 px-4 bg-[#222]text-white">
+      <section className="py-16 px-4 bg-[#222] text-white">
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="font-serif text-3xl mb-4">Receba Nossas Dicas Exclusivas</h2>
-          <p className="text-lg mb-8">
-            Inscreva-se em nossa newsletter e receba dicas exclusivas para economizar no seu casamento.
-          </p>
-          <div className="flex flex-col md:flex-row gap-2">
+          <p className="text-lg mb-6">Assine nossa newsletter e fique por dentro das últimas novidades sobre casamentos e dicas para economizar!</p>
+          <form className="flex justify-center">
             <input
               type="email"
-              placeholder="Seu email"
-              className="flex-grow px-4 py-3 rounded-md focus:outline-none text-gray-800"
+              placeholder="Seu e-mail"
+              className="w-full max-w-xs py-2 px-4 rounded-l-md border-2 border-[#e8e6e1] text-[#222]"
             />
-            <Button className="bg-white text-[#222]hover:bg-gray-100">Inscrever-se</Button>
-          </div>
+            <Button type="submit" className="py-2 px-6 rounded-r-md bg-amber-700 text-white">
+              Inscrever-se
+            </Button>
+          </form>
         </div>
       </section>
-      <footer className="bg-[#222] text-white py-10">
-          <div className="container mx-auto px-4">
-            <div className="flex justify-between items-center">
-              <div className="font-serif text-2xl">Casamento Chic</div>
-              <div className="flex space-x-6">
-                {SOCIAL_LINKS.map((link) => (
-                  <a key={link.name} href={link.href} className="text-white hover:text-[#cfa144]" target="_blank" rel="noopener noreferrer">
-                    {link.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
+
+      {/* Footer */}
+      <footer className="py-8 px-4 bg-[#222] text-white">
+        <div className="container mx-auto text-center">
+          <p>&copy; {new Date().getFullYear()} Casamento Chic. Todos os direitos reservados.</p>
+          <div className="flex justify-center space-x-6 mt-4">
+            <Link href="/" className="text-white">Início</Link>
+            <Link href="/sobre" className="text-white">Sobre</Link>
+            <Link href="/servicos" className="text-white">Serviços</Link>
+            <Link href="/contato" className="text-white">Contato</Link>
           </div>
-        </footer>
+        </div>
+      </footer>
     </main>
-  )
+  );
 }
