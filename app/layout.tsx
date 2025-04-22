@@ -19,7 +19,10 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Casamento Chic - Elegância com Orçamento Controlado",
   description: "Ajudamos noivas a realizarem um casamento elegante e sofisticado sem gastar muito.",
-    generator: 'v0.dev'
+  generator: 'odevthomas',
+  icons: {
+    icon: '/favicon.png',  // Aqui você especifica o caminho do seu favicon
+  },
 }
 
 export default function RootLayout({
@@ -29,12 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.png" />
+      </head>
       <body className="font-sans antialiased">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   )
 }
-
-
-import './globals.css'

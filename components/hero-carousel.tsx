@@ -4,14 +4,13 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import FormModal from "@/components/form-modal";
 
 const WEDDING_IMAGES = [
   "/image/Hero/hero3.webp",
   "/image/Hero/hero7.webp",
   "/image/Hero/hero5.webp",
   "/image/Hero/hero6.webp",
-   "/image/Hero/hero9.webp",
+  "/image/Hero/hero9.webp",
 ];
 
 const DEFAULT_IMAGE = "/placeholder.svg?height=1080&width=1920";
@@ -40,7 +39,6 @@ const slides = [
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
-  const [isFormOpen, setIsFormOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   const { scrollY } = useScroll();
@@ -94,7 +92,7 @@ export default function HeroCarousel() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Textos e Botão */}
+      {/* Textos */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
         <AnimatePresence mode="wait">
           <motion.div
@@ -111,18 +109,9 @@ export default function HeroCarousel() {
             <p className="font-serif text-xl md:text-2xl lg:text-3xl text-white mb-8 opacity-90">
               {currentSlide.subtitle}
             </p>
-            <button
-              onClick={() => setIsFormOpen(true)}
-              className="bg-[#cfa144] hover:bg-[#a08c4a] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg"
-            >
-              Agendar Agora
-            </button>
           </motion.div>
         </AnimatePresence>
       </div>
-
-      {/* Modal do Formulário */}
-      <FormModal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
 
       {/* Navegação */}
       <button

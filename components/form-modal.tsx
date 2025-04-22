@@ -29,7 +29,9 @@ export default function FormModal({ isOpen, onClose }: FormModalProps) {
     return Object.values(newErrors).every((e) => !e);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -44,67 +46,73 @@ export default function FormModal({ isOpen, onClose }: FormModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center px-4">
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="bg-[#111] text-white p-8 rounded-2xl border-2 border-[#cfa144] shadow-2xl w-full max-w-md"
+        className="bg-[#1c1c1e] text-white p-8 rounded-2xl border border-[#e0c385] shadow-xl w-full max-w-md"
       >
-        <h2 className="text-3xl font-extrabold text-center text-[#cfa144] mb-2 tracking-wide">
-          Quer chamar atenção de verdade?
+        <h2 className="text-3xl font-semibold text-center text-[#e0c385] mb-2 tracking-wide">
+          Vamos agendar sua data?
         </h2>
-        <p className="text-center text-zinc-300 mb-6 text-sm">
-          Preencha o formulário abaixo e descubra como agendar algo com impacto real.
+        <p className="text-center text-gray-300 mb-6 text-sm leading-relaxed">
+          Preencha os dados abaixo e entrarei em contato para confirmar seu agendamento.
         </p>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <input
               type="text"
               name="name"
-              placeholder="Seu nome"
-              className="w-full p-3 rounded-xl bg-black border border-zinc-700 focus:border-[#cfa144] outline-none transition"
+              placeholder="Seu nome completo"
+              className="w-full p-3 rounded-lg bg-[#121212] text-sm border border-[#e0c385] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#e0c385] transition"
               value={formData.name}
               onChange={handleChange}
             />
-            {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+            {errors.name && (
+              <p className="text-red-400 text-sm mt-1">{errors.name}</p>
+            )}
           </div>
 
           <div>
             <input
               type="email"
               name="email"
-              placeholder="Seu e-mail"
-              className="w-full p-3 rounded-xl bg-black border border-zinc-700 focus:border-[#cfa144] outline-none transition"
+              placeholder="Seu e-mail de contato"
+              className="w-full p-3 rounded-lg bg-[#121212] text-sm border border-[#e0c385] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#e0c385] transition"
               value={formData.email}
               onChange={handleChange}
             />
-            {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+            {errors.email && (
+              <p className="text-red-400 text-sm mt-1">{errors.email}</p>
+            )}
           </div>
 
           <div>
             <textarea
               name="message"
-              placeholder="Mensagem"
+              placeholder="Escreva aqui sua disponibilidade ou o que deseja agendar"
               rows={4}
-              className="w-full p-3 rounded-xl bg-black border border-zinc-700 focus:border-[#cfa144] outline-none transition resize-none"
+              className="w-full p-3 rounded-lg bg-[#121212] text-sm border border-[#e0c385] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#e0c385] transition resize-none"
               value={formData.message}
               onChange={handleChange}
             />
-            {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
+            {errors.message && (
+              <p className="text-red-400 text-sm mt-1">{errors.message}</p>
+            )}
           </div>
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-black font-extrabold py-3 px-6 rounded-xl shadow-lg transition-all hover:shadow-yellow-500/50"
+            className="w-full bg-gradient-to-r from-[#e0c385] to-[#cfa144] text-black font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-yellow-500/30 transition-all"
           >
-            Aumentar meu impacto agora
+            Solicitar agendamento
           </button>
 
           <button
             type="button"
             onClick={onClose}
-            className="w-full mt-2 text-zinc-400 hover:text-white font-semibold transition text-sm"
+            className="w-full mt-3 text-gray-400 hover:text-white text-sm font-medium transition"
           >
             Cancelar
           </button>

@@ -12,7 +12,7 @@ const GALLERY_IMAGES = [
   "/Image/Galeria/galeria1.webp",
   "/Image/Galeria/galeria2.webp",
   "/Image/Galeria/galeria3.webp",
-  "/Image/Galeria/galeria4.webp",
+  "/Image/Galeria/galeria9.webp",
   "/Image/Galeria/galeria5.webp",
   "/Image/Galeria/galeria6.webp",
   "/Image/Galeria/galeria7.webp",
@@ -38,7 +38,7 @@ const inspirations = [
   },
   {
     id: 3,
-    title: "Vogue - noivas",
+    title: "Vogue - Noivas",
     image: WEDDING_IMAGES[2],
     description: "Os Melhores Casamentos",
     link: "https://vogue.globo.com/noiva/"
@@ -54,7 +54,7 @@ export default function InspirationSection() {
           <h2 className="font-serif text-3xl md:text-4xl text-[#5c5c5c] mb-4">INSPIRAÇÃO</h2>
           <div className="w-20 h-1 bg-[#cfa144] mx-auto"></div>
           <p className="mt-6 text-[#5c5c5c] max-w-2xl mx-auto">
-            Casamentos que inspiraram as principais revistas do setor.
+            Revistas reconhecidas mundialmente que inspiram e motivam nosso trabalho a cada novo projeto.
           </p>
         </div>
 
@@ -64,7 +64,11 @@ export default function InspirationSection() {
             const imageSrc = item.image || DEFAULT_IMAGE
 
             return (
-              <Link key={item.id} href={item.link} className="group relative overflow-hidden rounded-lg shadow-md block">
+              <Link
+                key={item.id}
+                href={item.link}
+                className="group relative overflow-hidden rounded-lg shadow-md block"
+              >
                 <div className="relative w-full h-[600px]">
                   <Image
                     src={imageSrc}
@@ -93,29 +97,26 @@ export default function InspirationSection() {
             <div>
               <h3 className="font-serif text-3xl text-[#5c5c5c] mb-4">Casamentos que Inspiram</h3>
               <p className="text-[#5c5c5c] mb-6">
-                Nossos projetos já foram destaque nas principais revistas de casamento do Brasil e do mundo. Trabalhamos
-                para criar casamentos únicos, elegantes e memoráveis, sempre respeitando o orçamento dos nossos clientes.
+                Estamos sempre em busca de referências que nos desafiem e nos elevem. As revistas mais respeitadas do universo dos casamentos nos inspiram diariamente a criar com mais sensibilidade, elegância e autenticidade.
               </p>
               <p className="text-[#5c5c5c]">
-                Seja um casamento intimista ou uma grande celebração, nosso compromisso é transformar o seu sonho em
-                realidade, com sofisticação e economia.
+                São essas fontes de inspiração que reforçam nosso propósito: transformar sonhos em celebrações inesquecíveis, com beleza, sofisticação e atenção a cada detalhe.
               </p>
             </div>
 
-            {/* Mini Galeria estilosa com links */}
+            {/* Mini Galeria responsiva com links */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {GALLERY_IMAGES.map((src, index) => (
                 <Link
                   key={index}
                   href={`/galeria/${index + 1}`}
-                  className={`relative overflow-hidden rounded-xl group ${
-                    index % 3 === 0 ? "aspect-[2/3]" : "aspect-square"
-                  }`}
+                  className="relative aspect-[3/4] sm:aspect-square w-full overflow-hidden rounded-xl group"
                 >
                   <Image
                     src={src}
                     alt={`Galeria ${index + 1}`}
                     fill
+                    sizes="(max-width: 640px) 50vw, 25vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition duration-300" />
