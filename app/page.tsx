@@ -16,7 +16,7 @@ import MapSection from '@/components/map-section';
 import InspirationSection from '@/components/inspiration-section';
 import PaymentSection from '@/components/payment-section';
 import WhatsappButton from '@/components/whatsapp-button';
-import LanguageSelector from '@/components/language-selector';
+import LanguageSelector from "../components/language-selector";
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
