@@ -76,7 +76,7 @@ const articles = [
     slug: 'casamento-dos-sonhos',
     title: 'Como planejar o casamento dos sonhos',
     category: 'casamento-chic',
-    image: '/images/artigos/artigo1.jpg'
+    image: '/images/article-1.jpg'
   },
   {
     slug: 'casamento-barato',
@@ -195,7 +195,7 @@ export default function Home() {
           viewport={{ once: true, margin: "-100px" }}
           className="group cursor-pointer"
         >
-          <Link href={`/artigo/${article.slug}`}>
+          <Link href={`./artigo/${article.slug}`}>
             <div className="relative aspect-[3/4] overflow-hidden rounded-md shadow-md">
               <Image
                 src={article.image || "/placeholder.svg?height=600&width=400"}

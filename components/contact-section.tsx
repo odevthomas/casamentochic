@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState, useEffect } from "react"
-import { useLanguage } from "../language-provider"
+import { useLanguage } from "./language-provider"
 
 export default function ContactSection() {
   const { t } = useLanguage()

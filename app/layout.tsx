@@ -1,7 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
-import { LanguageProvider } from "@/language-provider"
+import { LanguageProvider } from "@/components/language-provider"
 import "./globals.css"
 
 const inter = Inter({
