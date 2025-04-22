@@ -1,21 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { ChevronDown } from "react-feather"
+import { useState } from "react";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ChevronDown } from "react-feather";
 
-import ContactForm from "./contact-form"
+import ContactForm from "./contact-form";
 
 export default function Hero() {
-  const [showForm, setShowForm] = useState(false)
-  const { scrollY } = useScroll()
-  const y = useTransform(scrollY, [0, 500], [0, 150])
+  const [showForm, setShowForm] = useState(false);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
 
   return (
     <section className="relative h-screen overflow-hidden">
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
-        <Image src="/hero/hero1.png" alt="Casamento elegante" fill priority className="object-cover" />
+        <Image
+          src="/hero/hero1.png"
+          alt="Casamento elegante"
+          fill
+          priority
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-black/20" />
       </motion.div>
 
@@ -23,7 +29,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.5 }} // Aumentei o tempo de transição
           className="max-w-3xl mx-auto"
         >
           <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
@@ -44,7 +50,10 @@ export default function Hero() {
           <div className="bg-white rounded-lg p-6 md:p-8 max-w-md w-full">
             <div className="flex justify-between items-center mb-6">
               <h3 className="font-serif text-2xl text-[#5c5c5c]">Vamos começar</h3>
-              <button onClick={() => setShowForm(false)} className="text-[#5c5c5c] hover:text-[#cfa144]">
+              <button
+                onClick={() => setShowForm(false)}
+                className="text-[#5c5c5c] hover:text-[#cfa144]"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -70,5 +79,5 @@ export default function Hero() {
         <ChevronDown className="text-white w-8 h-8" />
       </div>
     </section>
-  )
+  );
 }

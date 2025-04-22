@@ -17,7 +17,6 @@ export default function ArticlePage() {
   const [liked, setLiked] = useState(false)
 
   useEffect(() => {
-    // Find the article by slug
     const foundArticle = articles.find((a) => a.slug === slug)
 
     if (foundArticle) {
@@ -49,7 +48,6 @@ export default function ArticlePage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Floating WhatsApp Button */}
       <a
         href="https://wa.me/5511984973182?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Casamento%20Chic%20Pagando%20Pouco."
         target="_blank"
@@ -60,7 +58,6 @@ export default function ArticlePage() {
         <WhatsApp className="h-6 w-6" />
       </a>
 
-      {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-40">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="font-serif text-2xl font-bold">
@@ -72,7 +69,6 @@ export default function ArticlePage() {
         </div>
       </header>
 
-      {/* Article Hero */}
       <div className="relative h-[50vh] md:h-[60vh] w-full">
         <Image src={article.image || "/placeholder.svg"} alt={article.title} fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -94,56 +90,48 @@ export default function ArticlePage() {
         </div>
       </div>
 
-      {/* Article Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-8">
             <article className="prose prose-lg max-w-none">
               {article.content.map((section: any, index: number) => {
-                if (section.type === "paragraph") {
-                  return <p key={index}>{section.content}</p>
-                } else if (section.type === "heading") {
-                  return (
-                    <h2 key={index} className="font-serif text-2xl md:text-3xl mt-8 mb-4">
-                      {section.content}
-                    </h2>
-                  )
-                } else if (section.type === "image") {
-                  return (
-                    <figure key={index} className="my-8">
-                      <div className="relative h-[300px] md:h-[400px] w-full rounded-lg overflow-hidden">
-                        <Image
-                          src={section.url || "/placeholder.svg"}
-                          alt={section.caption || ""}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      {section.caption && (
-                        <figcaption className="text-center text-gray-500 mt-2">{section.caption}</figcaption>
-                      )}
-                    </figure>
-                  )
-                } else if (section.type === "quote") {
-                  return (
-                    <blockquote key={index} className="border-l-4 border-[#d4af37] pl-4 italic my-6">
-                      {section.content}
-                    </blockquote>
-                  )
-                } else if (section.type === "list") {
-                  return (
-                    <ul key={index} className="list-disc pl-5 my-4">
-                      {section.items.map((item: string, i: number) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
-                  )
+                switch (section.type) {
+                  case "paragraph":
+                    return <p key={index}>{section.content}</p>
+                  case "heading":
+                    return <h2 key={index} className="font-serif text-2xl md:text-3xl mt-8 mb-4">{section.content}</h2>
+                  case "image":
+                    return (
+                      <figure key={index} className="my-8">
+                        <div className="relative h-[300px] md:h-[400px] w-full rounded-lg overflow-hidden">
+                          <Image
+                            src={section.url || "/placeholder.svg"}
+                            alt={section.caption || ""}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        {section.caption && (
+                          <figcaption className="text-center text-gray-500 mt-2">{section.caption}</figcaption>
+                        )}
+                      </figure>
+                    )
+                  case "quote":
+                    return <blockquote key={index} className="border-l-4 border-[#d4af37] pl-4 italic my-6">{section.content}</blockquote>
+                  case "list":
+                    return (
+                      <ul key={index} className="list-disc pl-5 my-4">
+                        {section.items.map((item: string, i: number) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    )
+                  default:
+                    return null
                 }
-                return null
               })}
             </article>
 
-            {/* Article Actions */}
             <div className="flex items-center justify-between mt-12 pt-6 border-t border-gray-200">
               <div className="flex items-center gap-4">
                 <button
@@ -215,7 +203,7 @@ export default function ArticlePage() {
                 </div>
               </div>
 
-              <div className="bg-black text-white p-6 rounded-lg">
+              <div className="bg-[#222] text-white p-6 rounded-lg">
                 <h3 className="font-serif text-xl mb-4">Receba Mais Dicas</h3>
                 <p className="text-sm mb-4">
                   Cadastre-se para receber conteúdo exclusivo sobre casamentos e economizar no seu grande dia.
@@ -234,8 +222,7 @@ export default function ArticlePage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-black text-white py-12 px-4">
+      <footer className="bg-[#222] text-white py-12 px-4">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -244,120 +231,11 @@ export default function ArticlePage() {
                 Te ensinamos a organizar um casamento chic, o casamento dos seus sonhos, gastando até 50% menos.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-white hover:text-[#d4af37] transition-colors">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                  </svg>
-                </a>
-                <a href="#" className="text-white hover:text-[#d4af37] transition-colors">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-white hover:text-[#d4af37] transition-colors">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                  </svg>
-                </a>
+                <a href="#" className="text-white hover:text-[#d4af37] transition-colors">Instagram</a>
+                <a href="#" className="text-white hover:text-[#d4af37] transition-colors">YouTube</a>
+                <a href="#" className="text-white hover:text-[#d4af37] transition-colors">WhatsApp</a>
               </div>
             </div>
-            <div>
-              <h3 className="font-serif text-xl mb-4">Links Rápidos</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/" className="text-gray-400 hover:text-white transition-colors">
-                    Página Inicial
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#portfolio" className="text-gray-400 hover:text-white transition-colors">
-                    Portfólio
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#form" className="text-gray-400 hover:text-white transition-colors">
-                    Receber Dicas
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#contato" className="text-gray-400 hover:text-white transition-colors">
-                    Contato
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-serif text-xl mb-4">Contato</h3>
-              <p className="flex items-center gap-2 text-gray-400 mb-2">
-                <WhatsApp className="h-5 w-5 text-[#d4af37]" />
-                <a
-                  href="https://wa.me/5511984973182"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  +55 11 98497-3182
-                </a>
-              </p>
-              <p className="flex items-center gap-2 text-gray-400">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5 text-[#d4af37]"
-                >
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-                <a href="mailto:contato@casamentochic.com" className="hover:text-white transition-colors">
-                  contato@casamentochic.com
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-500">
-            <p>© 2024 Casamento Chic Pagando Pouco. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>

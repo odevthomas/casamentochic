@@ -3,21 +3,23 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { articles } from "@/app/data/articles"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
-import { LanguageSelector } from "@/components/LanguageSelector" // Verifique se este componente existe
+import { LanguageSelector } from "@/components/LanguageSelector" 
 
 export const metadata: Metadata = {
   title: "Blog | Casamento Chic Pagando Pouco",
   description: "Dicas, inspirações e guias para realizar o casamento dos seus sonhos gastando menos.",
 }
 
-export default function BlogPage() {
-  const scrollToSection = (id: string) => {
-    // Esta implementação será substituída pelo cliente
-  }
+const NAV_ITEMS = [
+  { name: "Início", href: "/" },
+  { name: "Sobre", href: "/sobre" },
+  { name: "Serviços", href: "/servicos" },
+  { name: "Contato", href: "/contato" },
+]
 
-  // Categorias para filtro
+export default function BlogPage() {
+  const scrollToSection = (id: string) => {}
+
   const categories = [
     { id: "all", name: "Todos os Artigos" },
     { id: "casamento-chic", name: "Casamento Chic" },
@@ -25,48 +27,42 @@ export default function BlogPage() {
     { id: "origem", name: "Origem do Casamento" },
   ]
 
-  // Artigos em destaque
   const featuredArticles = articles.slice(0, 3)
-  // Artigos restantes
   const regularArticles = articles.slice(3)
 
   return (
     <main className="min-h-screen bg-background">
       {/* Header */}
-      <div className="min-h-screen">
-        <header className="fixed top-0 z-50 w-full bg-white/90 backdrop-blur-sm border-b border-[#e8e6e1] shadow-sm">
-          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" className="font-serif text-2xl text-[#cfa144] font-medium">
-              Casamento Chic
-            </a>
-
-            <nav className="hidden md:flex items-center space-x-8">
-              {NAV_ITEMS.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="font-serif text-[#5c5c5c] hover:text-[#cfa144] transition-colors"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </nav>
-
-            <div className="flex items-center space-x-4">
-              <LanguageSelector />
-              <button className="md:hidden text-[#5c5c5c]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="3" y1="6" x2="21" y2="6"></line>
-                  <line x1="3" y1="12" x2="21" y2="12"></line>
-                  <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-              </button>
-            </div>
+      <header className="fixed top-0 z-50 w-full bg-white/90 backdrop-blur-sm border-b border-[#e8e6e1] shadow-sm">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <a href="/" className="font-serif text-2xl text-[#cfa144] font-medium">
+            Casamento Chic
+          </a>
+          <nav className="hidden md:flex items-center space-x-8">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="font-serif text-[#5c5c5c] hover:text-[#cfa144] transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
+          </nav>
+          <div className="flex items-center space-x-4">
+            <LanguageSelector />
+            <button className="md:hidden text-[#5c5c5c]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
           </div>
-        </header>
-      </div>
+        </div>
+      </header>
 
       {/* Hero Section */}
       <section className="relative h-[40vh] w-full overflow-hidden">
@@ -86,7 +82,6 @@ export default function BlogPage() {
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <h2 className="font-serif text-3xl text-center mb-12">Artigos em Destaque</h2>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredArticles.map((article, index) => (
               <div key={index} className="group cursor-pointer">
@@ -100,7 +95,7 @@ export default function BlogPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end">
                       <div className="p-4 w-full">
-                        <span className="inline-block px-2 py-1 bg-amber-600 text-white text-xs rounded mb-2">
+                        <span className="inline-block px-2 py-1 bg-[#222]text-white text-xs rounded mb-2">
                           {article.category === "casamento-chic"
                             ? "Casamento Chic"
                             : article.category === "gastando-pouco"
@@ -117,7 +112,7 @@ export default function BlogPage() {
                 <h3 className="font-serif text-xl mb-2">{article.title}</h3>
                 <p className="text-gray-600 text-sm mb-2">{article.date}</p>
                 <p className="text-gray-700 line-clamp-3 mb-4">{article.excerpt}</p>
-                <Link href={`/artigo/${article.slug}`} className="text-amber-600 hover:text-amber-700 font-medium">
+                <Link href={`/artigo/${article.slug}`} className="text-[#222]hover:text-amber-700 font-medium">
                   Ler mais →
                 </Link>
               </div>
@@ -130,20 +125,17 @@ export default function BlogPage() {
       <section className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="font-serif text-3xl text-center mb-6">Todos os Artigos</h2>
-
-          {/* Categories Filter */}
           <div className="flex flex-wrap justify-center gap-2 mb-12">
             {categories.map((category) => (
               <Button
                 key={category.id}
                 variant="outline"
-                className="border-amber-600 text-amber-600 hover:bg-amber-600/10"
+                className="border-[#222]text-[#222]hover:bg-amber-600/10"
               >
                 {category.name}
               </Button>
             ))}
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {regularArticles.map((article, index) => (
               <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -155,7 +147,7 @@ export default function BlogPage() {
                     className="object-cover"
                   />
                   <div className="absolute top-2 left-2">
-                    <span className="inline-block px-2 py-1 bg-amber-600 text-white text-xs rounded">
+                    <span className="inline-block px-2 py-1 bg-[#222]text-white text-xs rounded">
                       {article.category === "casamento-chic"
                         ? "Casamento Chic"
                         : article.category === "gastando-pouco"
@@ -170,37 +162,28 @@ export default function BlogPage() {
                   <p className="text-gray-500 text-sm mb-2">{article.date}</p>
                   <h3 className="font-serif text-xl mb-2">{article.title}</h3>
                   <p className="text-gray-700 line-clamp-3 mb-4">{article.excerpt}</p>
-                  <Link href={`/artigo/${article.slug}`} className="text-amber-600 hover:text-amber-700 font-medium">
+                  <Link href={`/artigo/${article.slug}`} className="text-[#222]hover:text-amber-700 font-medium">
                     Ler mais →
                   </Link>
                 </div>
               </div>
             ))}
           </div>
-
           {/* Pagination */}
           <div className="flex justify-center mt-12">
             <div className="flex gap-2">
-              <Button variant="outline" className="border-gray-300">
-                Anterior
-              </Button>
-              <Button className="bg-amber-600 hover:bg-amber-700">1</Button>
-              <Button variant="outline" className="border-gray-300">
-                2
-              </Button>
-              <Button variant="outline" className="border-gray-300">
-                3
-              </Button>
-              <Button variant="outline" className="border-gray-300">
-                Próxima
-              </Button>
+              <Button variant="outline" className="border-gray-300">Anterior</Button>
+              <Button className="bg-[#222]hover:bg-amber-700">1</Button>
+              <Button variant="outline" className="border-gray-300">2</Button>
+              <Button variant="outline" className="border-gray-300">3</Button>
+              <Button variant="outline" className="border-gray-300">Próxima</Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 px-4 bg-amber-600 text-white">
+      <section className="py-16 px-4 bg-[#222]text-white">
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="font-serif text-3xl mb-4">Receba Nossas Dicas Exclusivas</h2>
           <p className="text-lg mb-8">
@@ -212,33 +195,24 @@ export default function BlogPage() {
               placeholder="Seu email"
               className="flex-grow px-4 py-3 rounded-md focus:outline-none text-gray-800"
             />
-            <Button className="bg-white text-amber-600 hover:bg-gray-100">Inscrever-se</Button>
+            <Button className="bg-white text-[#222]hover:bg-gray-100">Inscrever-se</Button>
           </div>
         </div>
       </section>
-
-      {/* FOOTER */}
       <footer className="bg-[#222] text-white py-10">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <a href="/" className="font-serif text-2xl">Casamento Chic</a>
-
-            <div className="flex space-x-4">
-              {SOCIAL_LINKS.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-white hover:text-[#cfa144] transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.icon}
-                </a>
-              ))}
+          <div className="container mx-auto px-4">
+            <div className="flex justify-between items-center">
+              <div className="font-serif text-2xl">Casamento Chic</div>
+              <div className="flex space-x-6">
+                {SOCIAL_LINKS.map((link) => (
+                  <a key={link.name} href={link.href} className="text-white hover:text-[#cfa144]" target="_blank" rel="noopener noreferrer">
+                    {link.icon}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </footer>
+        </footer>
     </main>
   )
 }

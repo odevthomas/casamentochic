@@ -1,29 +1,29 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { ChevronDown } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
-import ContactForm from "./contact-form"
+import ContactForm from "./contact-form";
 
-const DEFAULT_IMAGE = "/Image/Hero/hero-horizontal.jpeg"
+const DEFAULT_IMAGE = "/Image/Hero/hero-horizontal.jpeg";
 
 export default function HeroSection() {
-  const [showForm, setShowForm] = useState(false)
-  const { scrollY } = useScroll()
-  const y = useTransform(scrollY, [0, 500], [0, 150])
+  const [showForm, setShowForm] = useState(false);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 100]); // Ajuste da suavização
 
-  // Ensure we have a valid image path
-  const imageSrc = DEFAULT_IMAGE
+  // Assegura que temos um caminho de imagem válido
+  const imageSrc = DEFAULT_IMAGE;
 
   return (
     <section className="relative h-screen overflow-hidden">
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pt-10 md:pt-20"> {/* Ajuste no espaço do topo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: "easeOut" }} // Transição mais suave
           className="max-w-3xl mx-auto"
         >
           {/* Título animado */}
@@ -32,9 +32,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30, scale: 0.9, rotate: -10 }}
             animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
             transition={{
-              duration: 1.2,
+              duration: 1.5, // Animação mais suave
               ease: "easeOut",
-              delay: 0.2,
+              delay: 0.3,
             }}
           >
             CASAMENTO CHIC PAGANDO POUCO
@@ -45,7 +45,7 @@ export default function HeroSection() {
           </p>
           <button
             onClick={() => setShowForm(true)}
-            className="bg-[#cfa144] hover:bg-[#cfa144] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg"
+            className="bg-[#cfa144] hover:bg-[#b88c3a] text-white font-serif py-3 px-8 rounded-md transition-colors text-lg"
           >
             EU VOU CASAR
           </button>
@@ -54,7 +54,7 @@ export default function HeroSection() {
 
       {showForm && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg p-6 md:p-8 max-w-md w-full">
+          <div className="bg-white rounded-lg p-6 md:p-8 max-w-md w-full shadow-xl"> {/* Adicionando sombra */}
             <div className="flex justify-between items-center mb-6">
               <h3 className="font-serif text-2xl text-[#5c5c5c]">Vamos começar</h3>
               <button onClick={() => setShowForm(false)} className="text-[#5c5c5c] hover:text-[#cfa144]">
@@ -80,9 +80,8 @@ export default function HeroSection() {
       )}
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-        <ChevronDown className="text-white w-8 h-8" />
+        <ChevronDown className="text-white w-8 h-8 opacity-80 hover:opacity-100 transition-opacity duration-300" /> {/* Efeito de opacidade no Chevron */}
       </div>
     </section>
-  )
+  );
 }
-  
