@@ -1,4 +1,8 @@
+
+
 # CasamentoChicPagandoPouco
+
+![mockup](https://github.com/user-attachments/assets/25bce53d-dc55-4743-8326-bf5e9dc620f2)
 
 ![Next.js](https://img.shields.io/badge/Next.js-13.0-blue) ![React](https://img.shields.io/badge/React-18.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-16.0-green) ![Vercel](https://img.shields.io/badge/Vercel-Hosting-purple)
 
